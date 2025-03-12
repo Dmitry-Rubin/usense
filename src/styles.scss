@@ -1,0 +1,39 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+button {
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  white-space: nowrap;
+
+  &:hover {
+    background-color: #0056b3;
+  }
+
+  &:disabled {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-height: 340px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+p {
+  margin: 5px 0;
+}

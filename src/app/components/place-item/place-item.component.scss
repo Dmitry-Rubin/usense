@@ -1,0 +1,18 @@
+:host {
+  .item-wrapper {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 2px 10px;
+    gap: 12px;
+    border-bottom: 1px solid #ccc;
+
+    &:hover {
+      background-color: #aaa4a4;
+    }
+
+    div {
+      cursor: pointer;
+    }
+  }
+}

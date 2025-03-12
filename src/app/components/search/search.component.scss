@@ -1,0 +1,19 @@
+.search-container {
+  width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+
+  input {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+}

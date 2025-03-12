@@ -1,0 +1,14 @@
+<ul>
+  @for (place of placesList(); track place) {
+    <li>
+      <app-place-item [place]="place" (onSelectPlace)="selectPlace($event)">
+        @if (!isPlaceInWishlist(place)) {
+          <button (click)="addToWishlist(place)">{{'Add to wishlist'}}</button>
+        } @else {
+          <button (click)="removeFromWishlist(place)">{{'Remove from wishlist'}}</button>
+        }
+      </app-place-item>
+    </li>
+  }
+</ul>
+

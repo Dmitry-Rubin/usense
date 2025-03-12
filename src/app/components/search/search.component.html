@@ -1,0 +1,17 @@
+<div class="search-container">
+    <form #searchForm="ngForm" (ngSubmit)="onSearch()">
+        <input type="text" [(ngModel)]="searchQuery" name="searchQuery" placeholder="Enter a keyword" required>
+        <input type="text" [(ngModel)]="coordinates" name="coordinates" placeholder="Enter coordinates (latitude,longitude)" required/>
+        <button type="submit" [disabled]="searchForm.invalid">
+            @if(!isLoading()){
+                {{' Search' }}
+            } @else {
+                {{'Loading...'}}
+            }
+        </button>
+    </form>
+
+    @if(searchResults()?.length){
+        <app-places-list [placesList]="searchResults()!"/>
+    }
+</div>

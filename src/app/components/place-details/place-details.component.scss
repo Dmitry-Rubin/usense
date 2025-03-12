@@ -1,0 +1,32 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 600px;
+
+  .content {
+    .loading {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-weight: bold;
+    }
+  }
+
+  .btn-group {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+
+    button {
+      margin: 0;
+
+      &:last-child {
+        grid-column: span 2;
+      }
+    }
+  }
+}
+
+

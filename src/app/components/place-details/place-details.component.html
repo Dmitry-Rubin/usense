@@ -1,0 +1,32 @@
+<h1>{{ 'Detail Place' }}</h1>
+<div class="content">
+  @if (isLoading()){
+    <div class="loading">{{'Data is loading...'}}</div>
+  }
+  @if(place()!){
+    <h2>{{ place()?.name }}</h2>
+    <p>location: {{ place()?.location?.address }}</p>
+    <p>formatted address: {{ place()?.location?.formatted_address }}</p>
+    <p>country: {{ place()?.location?.country }}</p>
+    <p>cross_street: {{ place()?.location?.cross_street }}</p>
+    <p>region: {{ place()?.location?.region }}</p>
+    <p>locality: {{ place()?.location?.locality }}</p>
+    <p>Address: {{ place()?.location?.address }}</p>
+
+    @for (categories of place()?.categories; track categories) {
+      <p>
+        {{ categories?.name }}
+        {{ categories?.short_name }}
+        <img [src]="categories?.icon?.prefix! + categories?.icon?.suffix!" alt="">
+        {{ categories?.id }}
+        {{ categories?.plural_name }}
+      </p>
+    }
+  }
+</div>
+<div class="btn-group">
+  <button [disabled]="isPlaceInWishlist()(place()!)" (click)="addToWishlist(place()!)">{{isPlaceInWishlist()(place()!) ? 'Place in Wishlist' : 'Add to Wishlist'}}</button>
+  <button [disabled]="!wishlist().length" (click)="goWishListPage()">{{'Go to wish list'}} ( {{wishlist().length}} )</button>
+  <button (click)="goBack()">{{'Go to main page'}}</button>
+</div>
+

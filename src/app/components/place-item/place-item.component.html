@@ -1,0 +1,4 @@
+<div class="item-wrapper">
+  <div (click)="selectPlaceItem(place()!)">{{ place()?.name }} - {{ place()?.location?.address }}</div>
+  <ng-content/>
+</div>
