@@ -10,7 +10,6 @@ import {PlaceItemComponent} from '../place-item/place-item.component';
     PlaceItemComponent
   ],
   templateUrl: './wish-list.component.html',
-  styleUrl: './wish-list.component.scss'
 })
 export class WishListComponent implements OnInit {
   wishlist = signal<IPlace[]>([]);

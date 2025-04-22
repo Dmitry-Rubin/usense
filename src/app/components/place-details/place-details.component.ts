@@ -7,7 +7,6 @@ import {IPlace} from "../../interfaces/interfaces";
 @Component({
   selector: 'app-place-details',
   templateUrl: './place-details.component.html',
-  styleUrls: ['./place-details.component.scss']
 })
 export class PlaceDetailsComponent implements OnInit {
   place = signal<IPlace | null>(null);

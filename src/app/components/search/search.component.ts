@@ -3,6 +3,7 @@ import { PlacesService } from '../../services/places.service';
 import {FormsModule} from "@angular/forms";
 import {PlacesListComponent} from "../places-list/places-list.component";
 import {IPlace} from "../../interfaces/interfaces";
+import {take} from 'rxjs';
 
 @Component({
   selector: 'app-search',
@@ -11,9 +12,8 @@ import {IPlace} from "../../interfaces/interfaces";
     FormsModule,
     PlacesListComponent,
   ],
-  styleUrls: ['./search.component.scss']
 })
-export class SearchComponent implements OnInit {
+export class SearchComponent {
   searchQuery: string = 'Dnipro';
   coordinates ='48.2800,35.0105';
   searchResults = signal<IPlace[] | null>([])
@@ -23,14 +23,12 @@ export class SearchComponent implements OnInit {
     private placesService: PlacesService
   ) {}
 
-  ngOnInit() {
-    this.onSearch()
-  }
 
   onSearch(): void {
-    if (this.searchQuery && this.coordinates) {
+    if (this.searchQuery) {
       this.isLoading.set(true);
       this.placesService.searchPlaces(this.searchQuery, this.coordinates)
+        .pipe(take(1))
         .subscribe({
           next: (data) => {
             this.isLoading.set(false);

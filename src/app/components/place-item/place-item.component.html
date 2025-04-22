@@ -1,4 +1,16 @@
-<div class="item-wrapper">
-  <div (click)="selectPlaceItem(place()!)">{{ place()?.name }} - {{ place()?.location?.address }}</div>
-  <ng-content/>
+<div class="p-3 flex items-center space-x-4 rtl:space-x-reverse hover:bg-blue-100 cursor-pointer">
+  <div (click)="selectPlaceItem(place()!)" class="flex-1 min-w-0">
+    <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+      {{ place()?.name }}
+    </p>
+    <p class="text-sm text-gray-600 truncate dark:text-gray-300">
+      {{ place()?.location?.formatted_address }}
+    </p>
+    <p class="text-xs text-gray-500 truncate dark:text-gray-400">
+      {{ place()?.location?.region }}, {{ place()?.location?.country }}
+    </p>
+  </div>
+  <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+    <ng-content/>
+  </div>
 </div>

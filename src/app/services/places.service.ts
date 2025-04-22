@@ -67,8 +67,4 @@ export class PlacesService {
       })
     );
   }
-
-  clearCache(): void {
-    this.cache.clear();
-  }
 }

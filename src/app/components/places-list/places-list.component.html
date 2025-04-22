@@ -1,11 +1,11 @@
-<ul>
+<ul class="max-w-full divide-y divide-gray-300 dark:divide-gray-500 border-b border-gray-300 dark:border-gray-500">
   @for (place of placesList(); track place) {
     <li>
       <app-place-item [place]="place" (onSelectPlace)="selectPlace($event)">
         @if (!isPlaceInWishlist(place)) {
-          <button (click)="addToWishlist(place)">{{'Add to wishlist'}}</button>
+          <button class="btn btn-blue" (click)="addToWishlist(place)">{{'Add to wishlist'}}</button>
         } @else {
-          <button (click)="removeFromWishlist(place)">{{'Remove from wishlist'}}</button>
+          <button class="btn btn-red" (click)="removeFromWishlist(place)">{{'Remove from wishlist'}}</button>
         }
       </app-place-item>
     </li>

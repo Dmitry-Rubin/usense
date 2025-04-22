@@ -10,7 +10,6 @@ import {StorageService} from '../../services/storage.service';
     PlaceItemComponent
   ],
   templateUrl: './places-list.component.html',
-  styleUrl: './places-list.component.scss'
 })
 
 export class PlacesListComponent {

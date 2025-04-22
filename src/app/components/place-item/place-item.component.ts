@@ -1,13 +1,12 @@
-import {Component, EventEmitter, input, Output} from '@angular/core';
+import {Component, EventEmitter, input, output, Output} from '@angular/core';
 import {IPlace} from '../../interfaces/interfaces';
 
 @Component({
   selector: 'app-place-item',
   templateUrl: './place-item.component.html',
-  styleUrl: './place-item.component.scss'
 })
 export class PlaceItemComponent {
-  @Output() onSelectPlace = new EventEmitter<IPlace>();
+  onSelectPlace = output<IPlace>();
 
   place  = input<IPlace | null>(null);
 

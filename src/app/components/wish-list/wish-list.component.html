@@ -1,22 +1,23 @@
-<h1>{{ 'Wishlist' }}</h1>
-<div class="content">
+<h1 class="mb-6 text-sm font-bold leading-none tracking-tight text-gray-700 md:text-4xl  dark:text-white">{{ 'Wishlist' }}</h1>
+<div class="w-full mb-16">
   @if (wishlist().length) {
     <ul>
       @for (place of wishlist(); track place.fsq_id) {
         <li>
           <app-place-item [place]="place" (onSelectPlace)="selectPlace($event)">
-            <button (click)="removeFromWishlist(place)">{{'Remove from wishlist'}}</button>
+            <button class="btn btn-red" (click)="removeFromWishlist(place)">{{'Remove from wishlist'}}</button>
           </app-place-item>
         </li>
       }
     </ul>
   } @else {
-    <div class="empty-list">
-      {{'Wish list is empty'}}<br>
-      {{'Please add to list your favorite place'}}
-    </div>
+    <h2 class="text-3xl text-center text-gray-500 truncate dark:text-gray-400">{{'Wish list is empty'}}</h2><br>
+    <p class="text-2xl text-center text-gray-400 truncate dark:text-gray-500">{{'Please add to list your favorite place'}}</p>
   }
 </div>
+
 @if(!wishlist().length) {
-  <button class="redirect-btn" (click)="goToMainPage()">{{'Go to main page'}}</button>
+  <div class="flex justify-center">
+    <button class="btn btn-blue" (click)="goToMainPage()">{{'Go to main page'}}</button>
+  </div>
 }
